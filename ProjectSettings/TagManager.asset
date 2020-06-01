@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -15,12 +16,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EnemyBullet
+  - Enemy
+  - Pickups
+  - PickupGrabber
+  - MaskShield
+  - PlayerBullet
   - 
   - 
   - 

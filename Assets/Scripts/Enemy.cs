@@ -1,45 +1,78 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //[HideInInspector]
-    public Transform player;
-    public Transform enemy;
-    public GameObject bulletprefab;
+    [Header("Movement")]
     public float speed = 10f;
+    public float targetRadius = 3f;
+    public float maxRadius = 2.5f;
+
+    public VirusMeshController meshController;
+
+    [Header("Shooting")] 
+    public GameObject bulletPrefab;
+
+    public float shootingRadius = 3f;
+    public float cooldown = 2f;
+
+    private float _lastShoot;
+    
+    private Transform _player;
+    private Rigidbody2D _rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _rb = GetComponent<Rigidbody2D>();
+
+        _lastShoot = 0;
         
-        shoot();
+        meshController.enemy = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if ((_player.position - transform.position).magnitude < shootingRadius && Time.time - _lastShoot > cooldown)
+        {
+            Shoot();
+        }
     }
-    void bulletgo(Vector2 direction)
-    { 
-        enemy.Translate(direction * speed * Time.deltaTime);
-        
-    }
-    void shoot()
+
+    private void FixedUpdate()
     {
-        GameObject b = Instantiate(bulletprefab) as GameObject;
-        b.GetComponent<Bullet>().velocity = vectorToPlayer();
-        b.transform.position = enemy.transform.position;
-        Destroy(b,1f);
-        
+        Move();
     }
-    Vector2 vectorToPlayer()
+
+    void Move()
     {
-        return (player.position*2 - transform.position*2).normalized;
+        float distance = (_player.position - transform.position).magnitude;
         
+        // Clamp at -0.5f so enemies back away from player
+        float speedMultiplier = Mathf.Clamp((distance - maxRadius) / targetRadius, -0.5f, 1);
+        
+        _rb.MovePosition(_rb.position + VectorToPlayer() * (speedMultiplier * speed * Time.deltaTime));
+    }
+
+    void Shoot()
+    {
+        _lastShoot = Time.time;
+        meshController.AnimateShoot();
+    }
+
+    public void SpawnBullet()
+    {
+        GameObject b = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        b.GetComponent<Bullet>().velocity = VectorToPlayer();
+    }
+    
+    Vector2 VectorToPlayer()
+    {
+        return (_player.position - transform.position).normalized;
     }
 
 }
