@@ -5,20 +5,20 @@ using UnityEngine;
 public class CameraMovementScript : MonoBehaviour
 {
     public Transform player;
-    public float smoothTime;
+    public float mouseInfluence = .5f;
 
-    private Vector3 _velocity;
+    private Camera _camera;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        _camera = GetComponent<Camera>();
     }
-
-    // Update is called once per frame
+    
     void LateUpdate()
     {
-        Vector3 target = new Vector3(player.position.x, player.position.y, this.transform.position.z);
+        Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 posLerp = Vector2.Lerp(player.position, new Vector2(mousePos.x, mousePos.y), mouseInfluence * .5f);
+        Vector3 target = new Vector3(posLerp.x, posLerp.y, this.transform.position.z);
         
         // TODO: fix jitter on smooth movement
         // transform.position = Vector3.SmoothDamp(transform.position, target, ref _velocity, smoothTime);
