@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  targetRadius: 2.5
-  maxRadius: 2.45
+  targetRadius: 3
+  targetRadiusVariance: 2
   meshController: {fileID: 6894006064233304971}
   bulletPrefab: {fileID: 8540069310973332065, guid: 857bc978514104496aa4c941cd5ad696,
     type: 3}

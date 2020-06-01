@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
     [Header("Movement")]
     public float speed = 10f;
     public float targetRadius = 3f;
-    public float maxRadius = 2.5f;
+    public float targetRadiusVariance = 2f;
 
     public VirusMeshController meshController;
 
@@ -22,6 +23,8 @@ public class Enemy : MonoBehaviour
     public ParticleSystem deathParticle;
 
     private float _lastShoot;
+    private float _targetRadius;
+    private float _maxRadius;
     
     private Transform _player;
     private Rigidbody2D _rb;
@@ -37,6 +40,9 @@ public class Enemy : MonoBehaviour
         _damageable.onDamage += meshController.AnimateDamage;
         _damageable.onHealthZero += OnDeath;
 
+        _targetRadius = ((Random.value - .5f) * targetRadiusVariance + targetRadius);
+        _maxRadius = _targetRadius - .5f;
+        
         _lastShoot = 0;
         
         meshController.enemy = this;
@@ -61,7 +67,7 @@ public class Enemy : MonoBehaviour
         float distance = (_player.position - transform.position).magnitude;
         
         // Clamp at -0.5f so enemies back away from player
-        float speedMultiplier = Mathf.Clamp((distance - maxRadius) / targetRadius, -0.5f, 1);
+        float speedMultiplier = Mathf.Clamp((distance - _maxRadius) / _targetRadius, -0.5f, 1);
         
         _rb.MovePosition(_rb.position + VectorToPlayer() * (speedMultiplier * speed * Time.deltaTime));
     }
