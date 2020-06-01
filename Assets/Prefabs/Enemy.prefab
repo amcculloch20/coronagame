@@ -101,6 +101,8 @@ MonoBehaviour:
     type: 3}
   shootingRadius: 3
   cooldown: 2
+  deathParticle: {fileID: 9094299648206016661, guid: beedabdc5a45544c0a0e818100a7fe45,
+    type: 3}
 --- !u!58 &6527473455099810939
 CircleCollider2D:
   m_ObjectHideFlags: 0

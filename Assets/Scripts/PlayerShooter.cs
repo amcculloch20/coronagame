@@ -55,7 +55,7 @@ public class PlayerShooter : MonoBehaviour
     {
         // Shoot if click
         if (
-            Input.GetMouseButtonDown(0) 
+            Input.GetAxis("Fire1") > 0.5f
             && Time.time - _lastShoot > CurrentGun.cooldown 
             && sanitizerInventory[currentGunIndex].fill > sanitizerInventory[currentGunIndex].cost
         )

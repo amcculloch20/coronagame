@@ -18,16 +18,24 @@ public class Enemy : MonoBehaviour
     public float shootingRadius = 3f;
     public float cooldown = 2f;
 
+    [Header("Appearance")] 
+    public ParticleSystem deathParticle;
+
     private float _lastShoot;
     
     private Transform _player;
     private Rigidbody2D _rb;
+    private Damageable _damageable;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         _rb = GetComponent<Rigidbody2D>();
+        _damageable = GetComponent<Damageable>();
+
+        _damageable.onDamage += meshController.AnimateDamage;
+        _damageable.onHealthZero += OnDeath;
 
         _lastShoot = 0;
         
@@ -62,6 +70,14 @@ public class Enemy : MonoBehaviour
     {
         _lastShoot = Time.time;
         meshController.AnimateShoot();
+    }
+
+    void OnDeath()
+    {
+        ParticleSystem p = Instantiate(deathParticle, transform.transform.position, Quaternion.identity);
+        Destroy(p.gameObject, p.main.duration);
+        
+        Destroy(gameObject);
     }
 
     public void SpawnBullet()

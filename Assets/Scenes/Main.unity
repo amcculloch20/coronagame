@@ -292,7 +292,7 @@ MonoBehaviour:
   spawnObject: {fileID: 8150869341673131605, guid: 30006975c5e8c4fceab65b4546fc07e7,
     type: 3}
   spawnVolume: {x: 20, y: 10, z: 0}
-  rate: 0.1
+  rate: 0.5
   spawnerEnabled: 1
 --- !u!4 &204002326
 Transform:
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6954198905078755789, guid: 48930305cc8fe4ca197b3ac8abd09944, type: 3}
-  enemycount: 10
+  enemycount: 1
 --- !u!114 &768354936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 67.15
+  m_fontSize: 52.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

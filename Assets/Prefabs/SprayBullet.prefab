@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.6, g: 0.93333334, b: 1, a: 0.8}
+      maxColor: {r: 0.8, g: 0.83137256, b: 1, a: 0.69803923}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4779,8 +4779,9 @@ GameObject:
   - component: {fileID: 2380327787662425968}
   - component: {fileID: 4427462346933607478}
   - component: {fileID: -915362397798893455}
+  - component: {fileID: 5946810009461281764}
   m_Layer: 13
-  m_Name: PumpBullet
+  m_Name: SprayBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4832,10 +4833,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
   speed: 4
-  power: 20
+  power: 5
   trailParticle: {fileID: 920804644941143513}
   hitParticle: {fileID: 5032970935396332274, guid: a2bb1f2095e4143cfb8f6f44999a3e78,
     type: 3}
+--- !u!114 &5946810009461281764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540069310973332065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3fffff64b004399811330ee1c68eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spread: 45
+  count: 5
+  isParent: 1
 --- !u!1001 &2509270189466180544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4871,12 +4887,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: acd034b0c72cd425c84635fdcefb2534,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: acd034b0c72cd425c84635fdcefb2534,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: acd034b0c72cd425c84635fdcefb2534,
         type: 3}
@@ -4886,7 +4902,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: acd034b0c72cd425c84635fdcefb2534,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: acd034b0c72cd425c84635fdcefb2534,
         type: 3}
@@ -4917,7 +4933,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dd25b7e54d93943b48233171fb212d39, type: 2}
+      objectReference: {fileID: 2100000, guid: ea7949b1b4a874d75b014c9a92081787, type: 2}
     - target: {fileID: -927199367670048503, guid: acd034b0c72cd425c84635fdcefb2534,
         type: 3}
       propertyPath: m_Name

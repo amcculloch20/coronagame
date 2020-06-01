@@ -10,7 +10,8 @@ public class VirusMeshController : MonoBehaviour
 
     private Animator _animator;
     
-    private static readonly int Shoot = Animator.StringToHash("Shoot");
+    private static readonly int ShootTrigger = Animator.StringToHash("Shoot");
+    private static readonly int DamageTrigger = Animator.StringToHash("Damage");
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,13 @@ public class VirusMeshController : MonoBehaviour
 
     public void AnimateShoot()
     {
-        _animator.SetTrigger(Shoot);
+        _animator.SetTrigger(ShootTrigger);
+    }
+
+    public void AnimateDamage(float _)
+    {
+        Debug.Log("ahw");
+        _animator.SetTrigger(DamageTrigger);
     }
 
     public void SpawnBullet()
