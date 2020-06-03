@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class VirusMeshController : MonoBehaviour
 {
+    
+    // enemy will set this 
     [HideInInspector] public Enemy enemy;
 
     private Animator _animator;
     
-    private static readonly int ShootTrigger = Animator.StringToHash("Shoot");
+    // private static readonly int ShootTrigger = Animator.StringToHash("Shoot");
     private static readonly int DamageTrigger = Animator.StringToHash("Damage");
 
     // Start is called before the first frame update
@@ -19,16 +21,10 @@ public class VirusMeshController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void AnimateShoot()
-    {
-        _animator.SetTrigger(ShootTrigger);
-    }
+    // public void AnimateShoot()
+    // {
+    //     _animator.SetTrigger(ShootTrigger);
+    // }
 
     public void AnimateDamage(float _)
     {
@@ -36,8 +32,8 @@ public class VirusMeshController : MonoBehaviour
         _animator.SetTrigger(DamageTrigger);
     }
 
-    public void SpawnBullet()
-    {
-        enemy.SpawnBullet();
-    }
+    // public void SpawnBullet()
+    // {
+    //     enemy.SpawnBullet();
+    // }
 }
