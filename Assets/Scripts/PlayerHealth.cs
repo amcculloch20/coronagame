@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     
     public Image healthBar;
     public float smoothSpeed = 1f;
+    public GameObject target;
 
     private Damageable _damageable;
 
