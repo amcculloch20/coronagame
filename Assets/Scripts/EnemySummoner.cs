@@ -4,46 +4,57 @@ using UnityEngine;
 
 public class EnemySummoner : MonoBehaviour
 {
-    public GameObject enemy;
-    public float enemycount;
+    public GameObject spawnObject;
+    public Vector3 spawnVolume = Vector3.one;
+    public float baseRate = 1f;
+    public float growthRate = 1.1f;
+    public bool spawnerEnabled = true;
 
+    public float Rate => baseRate * Mathf.Pow(growthRate, Time.time - _startTime);
 
-    private Camera _mainCamera;
+    private float _lastSpawn;
+    private float _startTime;
+    
     // Start is called before the first frame update
     void Start()
     {
-        _mainCamera = Camera.main;
-
-        for (int i = 0; i < enemycount; i++)
-        {
-
-            Spawn();
-
-        }
-
+        _startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
-
     {
-       
-
-
+        if (spawnerEnabled && Time.time - _lastSpawn > (1 / Rate))
+        {
+            Spawn();
+        }
     }
-
     
-    void Spawn()
+    // Draw spawn volume in editor
+    void OnDrawGizmosSelected()
     {
-        Vector3 position = new Vector3 (Random.value*10-5,Random.value*10-5,0);
-
-
-        GameObject spawned = Instantiate(
-            enemy,
-            position,
-            Quaternion.identity
-            );
-        //Destroy(spawned, 10f);
+        // Draw a semitransparent blue cube at the transforms position
+        Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
+        Gizmos.DrawWireCube(transform.position, spawnVolume);
     }
-   
+
+    private void Spawn()
+    {
+        Vector3 location = transform.position - spawnVolume / 2;
+        Vector3 locationAdjustment = new Vector3(
+            Random.value * spawnVolume.x,
+            Random.value * spawnVolume.y,
+            Random.value * spawnVolume.z
+        );
+
+        location += locationAdjustment;
+
+        Instantiate(
+            spawnObject,
+            location,
+            Quaternion.identity
+        );
+
+        _lastSpawn = Time.time;
+    }
 }

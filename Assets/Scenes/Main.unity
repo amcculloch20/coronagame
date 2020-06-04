@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 204002329}
   - component: {fileID: 204002328}
   - component: {fileID: 204002327}
+  - component: {fileID: 204002331}
   m_Layer: 0
   m_Name: ItemSpawner
   m_TagString: Untagged
@@ -675,7 +676,7 @@ MonoBehaviour:
   spawnObject: {fileID: 7398842820452013445, guid: 78497b86a03d640298629f02fb8a2000,
     type: 3}
   spawnVolume: {x: 20, y: 10, z: 0}
-  rate: 0.1
+  rate: 0.025
   spawnerEnabled: 1
 --- !u!114 &204002328
 MonoBehaviour:
@@ -692,7 +693,7 @@ MonoBehaviour:
   spawnObject: {fileID: 7398842820452013445, guid: 9c61d3c4c1b854487ba4c3f4d3999c89,
     type: 3}
   spawnVolume: {x: 20, y: 10, z: 0}
-  rate: 0.1
+  rate: 0.05
   spawnerEnabled: 1
 --- !u!114 &204002329
 MonoBehaviour:
@@ -727,6 +728,24 @@ MonoBehaviour:
     type: 3}
   spawnVolume: {x: 20, y: 10, z: 0}
   rate: 0.1
+  spawnerEnabled: 1
+--- !u!114 &204002331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204002324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e347d61b409435981400518ad2b7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnObject: {fileID: 6954198905078755789, guid: 48930305cc8fe4ca197b3ac8abd09944,
+    type: 3}
+  spawnVolume: {x: 20, y: 10, z: 0}
+  baseRate: 0.25
+  growthRate: 1.01
   spawnerEnabled: 1
 --- !u!1 &309233753
 GameObject:
@@ -1726,7 +1745,6 @@ GameObject:
   - component: {fileID: 768354934}
   - component: {fileID: 768354933}
   - component: {fileID: 768354932}
-  - component: {fileID: 768354935}
   - component: {fileID: 768354936}
   - component: {fileID: 768354937}
   m_Layer: 0
@@ -1801,20 +1819,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &768354935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768354931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e347d61b409435981400518ad2b7dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 6954198905078755789, guid: 48930305cc8fe4ca197b3ac8abd09944, type: 3}
-  enemycount: 10
 --- !u!114 &768354936
 MonoBehaviour:
   m_ObjectHideFlags: 0
