@@ -1,11 +1,44 @@
 fileFormatVersion: 2
-guid: b51a7b12d17a74baa8483cc7b8870c82
+guid: 76a3a3dc5850fbb4184fd9c3e21a5851
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: -623603649343465320
-    second: Scene
+      74: 2479058360398535388
+    second: Cube|Idle.001
+  - first:
+      74: -6020178209981550162
+    second: Cube|Shoot.002
+  - first:
+      74: 4483738846078104070
+    second: Cube|Shoot.003
+  - first:
+      74: 8233320060228452111
+    second: Cube|ShootAction
+  - first:
+      74: 1103082400486275674
+    second: Cube|ShootAction.001
+  - first:
+      74: -8645324862763549517
+    second: Cube|WalkUp
+  - first:
+      74: 5017208657661049102
+    second: ChargingVirus|Idle.001
+  - first:
+      74: -3484357555095350504
+    second: ChargingVirus|Shoot.002
+  - first:
+      74: 8640822465476713356
+    second: ChargingVirus|Shoot.003
+  - first:
+      74: 5436086605566011411
+    second: ChargingVirus|ShootAction
+  - first:
+      74: -1890754012571246206
+    second: ChargingVirus|ShootAction.001
+  - first:
+      74: -3553129941864288603
+    second: ChargingVirus|WalkUp
   externalObjects: {}
   materials:
     materialImportMode: 1

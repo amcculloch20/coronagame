@@ -2,31 +2,7 @@ fileFormatVersion: 2
 guid: 5ef2f597bd1a0447f95a2da8abc8c4c3
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      74: 1139950116948140328
-    second: Virus|Idle.001
-  - first:
-      74: 7566323432539066756
-    second: Virus|KeyAction
-  - first:
-      74: -2610012743815623142
-    second: Virus|KeyAction.001
-  - first:
-      74: 5863244100623185580
-    second: Virus|KeyAction.002
-  - first:
-      74: -556475756308674870
-    second: Virus|Shoot.001
-  - first:
-      74: -9073490708230272087
-    second: Virus|Shoot.002
-  - first:
-      74: -885135175622721057
-    second: Virus|Shoot.003
-  - first:
-      74: 5372153450282656358
-    second: Virus|VirusAction
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -85,7 +61,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
