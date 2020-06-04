@@ -198,7 +198,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 5679976803634484349, guid: b51a7b12d17a74baa8483cc7b8870c82, type: 3}
+  m_Mesh: {fileID: 5679976803634484349, guid: 5ef2f597bd1a0447f95a2da8abc8c4c3, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -455,8 +455,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.05
+      scalar: 100
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3961,7 +3961,7 @@ ParticleSystem:
     radiusScale: 1
   SubModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     subEmitters:
     - serializedVersion: 3
       emitter: {fileID: 1988973658}
@@ -4218,7 +4218,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 2
-      scalar: 2.5
+      scalar: 0.03
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5888,7 +5888,7 @@ PrefabInstance:
     - target: {fileID: 6342422217940506562, guid: 34e46e6168dc443f19643a8b25c2eb61,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 2
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6342422217940506562, guid: 34e46e6168dc443f19643a8b25c2eb61,
         type: 3}
