@@ -19,12 +19,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _main = Camera.main;
+
+        Damageable damageable = GetComponent<Damageable>();
+        damageable.onHealthZero += OnDeath;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         UpdateInput();
 
         Vector3 screenPoint = Input.mousePosition;
@@ -48,11 +50,18 @@ public class PlayerMovement : MonoBehaviour
         float hor = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
         _input = new Vector2(hor * (float)Math.Sqrt(1 - Math.Pow(vert, 2) / 2), vert * (float)Math.Sqrt(1 - Math.Pow(hor, 2) / 2));
+        
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         _inputLerp = Vector2.Lerp(_inputLerp, _input, Time.fixedDeltaTime * inputGravity);
         _rb.MovePosition(_rb.position + _inputLerp * (Time.fixedDeltaTime * speed));
+    }
+
+    void OnDeath()
+    {
+        // just disable
+        enabled = false;
     }
 }

@@ -55,10 +55,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6954198905078755791}
-  - component: {fileID: 1938544653511611460}
   - component: {fileID: 6527473455099810939}
   - component: {fileID: 2418233098745121629}
   - component: {fileID: -4638214597927776525}
+  - component: {fileID: 3361597976319035294}
+  - component: {fileID: 5657520426372602509}
+  - component: {fileID: 4870291997565462751}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -81,28 +83,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1938544653511611460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6954198905078755789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d242e53a7e7ac4574b03517c24d348e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  targetRadius: 3
-  targetRadiusVariance: 2
-  meshController: {fileID: 6894006064233304971}
-  bulletPrefab: {fileID: 8540069310973332065, guid: 857bc978514104496aa4c941cd5ad696,
-    type: 3}
-  shootingRadius: 3
-  cooldown: 2
-  deathParticle: {fileID: 9094299648206016661, guid: beedabdc5a45544c0a0e818100a7fe45,
-    type: 3}
 --- !u!58 &6527473455099810939
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,6 +136,54 @@ MonoBehaviour:
   countAfterZero: 0
   health: 0
   dead: 0
+--- !u!114 &3361597976319035294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954198905078755789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574d8ff2e14e2524b87485cc38320b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshController: {fileID: 6894006064233304971}
+  deathParticle: {fileID: 9094299648206016661, guid: beedabdc5a45544c0a0e818100a7fe45,
+    type: 3}
+  player: {fileID: 0}
+--- !u!114 &5657520426372602509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954198905078755789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b561292593083741bdda89006cec5ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  targetRadius: 3
+  targetRadiusVariance: 2
+--- !u!114 &4870291997565462751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954198905078755789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4997f20fcd899814fb809b0701c90036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8540069310973332065, guid: 857bc978514104496aa4c941cd5ad696,
+    type: 3}
+  enemyTargetDistanceMovement: {fileID: 5657520426372602509}
+  shootingRadius: 3
+  cooldown: 2
 --- !u!1001 &7148438751488960371
 PrefabInstance:
   m_ObjectHideFlags: 0

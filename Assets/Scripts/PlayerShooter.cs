@@ -50,6 +50,9 @@ public class PlayerShooter : MonoBehaviour
         menuController.GunColor = CurrentGun.color;
         menuController.SetActiveGun(CurrentGun);
         
+        Damageable damageable = GetComponent<Damageable>();
+        damageable.onHealthZero += OnDeath;
+        
         UpdateGunIconFill();
     }
 
@@ -73,6 +76,8 @@ public class PlayerShooter : MonoBehaviour
             {
                 currentGunIndex = i;
                 menuController.SetActiveGun(CurrentGun);
+                menuController.fillAmount = sanitizerInventory[currentGunIndex].fill;
+                menuController.GunColor = sanitizerInventory[currentGunIndex].sanitizerGun.color;
             }
         }
     }
@@ -109,6 +114,12 @@ public class PlayerShooter : MonoBehaviour
         {
             menuController.SetGunFill(sanitizerInventory[i].sanitizerGun, sanitizerInventory[i].fill);
         }
+    }
+
+    void OnDeath()
+    {
+        // disable
+        enabled = false;
     }
 
     public void UpdateFill(SanitizerGun gun, float amount)

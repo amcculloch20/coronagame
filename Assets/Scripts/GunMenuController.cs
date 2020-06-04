@@ -20,7 +20,7 @@ public class GunMenuController : MonoBehaviour
     }
     
     [Header("AmmoBar")]
-    public Image fill;
+    public Image fillBar;
     public Image background;
 
     public float fillAmount;
@@ -42,20 +42,20 @@ public class GunMenuController : MonoBehaviour
     void Start()
     {
         // Set to default
-        _color = fill.color;
+        _color = fillBar.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        fill.fillAmount = Mathf.Lerp(fill.fillAmount,fillAmount, smoothSpeed * Time.deltaTime);
+        fillBar.fillAmount = Mathf.Lerp(fillBar.fillAmount,fillAmount, smoothSpeed * Time.deltaTime);
         
         UpdateGunIcons();
     }
 
     private void UpdateColor(Color color)
     {
-        fill.color = color;
+        fillBar.color = color;
         Color.RGBToHSV(color, out float h, out float s, out float v);
         v /= 2;
         
