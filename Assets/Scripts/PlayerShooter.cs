@@ -48,6 +48,9 @@ public class PlayerShooter : MonoBehaviour
         _mainCamera = Camera.main;
 
         menuController.GunColor = CurrentGun.color;
+        menuController.SetActiveGun(CurrentGun);
+        
+        UpdateGunIconFill();
     }
 
     // Update is called once per frame
@@ -57,10 +60,20 @@ public class PlayerShooter : MonoBehaviour
         if (
             Input.GetAxis("Fire1") > 0.5f
             && Time.time - _lastShoot > CurrentGun.cooldown 
-            && sanitizerInventory[currentGunIndex].fill > sanitizerInventory[currentGunIndex].cost
+            && sanitizerInventory[currentGunIndex].fill >= sanitizerInventory[currentGunIndex].cost
         )
         {
             Shoot();
+        }
+        
+        // Switch guns
+        for (int i = 0; i < sanitizerInventory.Length; i++)
+        {
+            if (Input.GetKeyDown($"{i + 1}"))
+            {
+                currentGunIndex = i;
+                menuController.SetActiveGun(CurrentGun);
+            }
         }
     }
 
@@ -73,6 +86,7 @@ public class PlayerShooter : MonoBehaviour
 
         sanitizerInventory[currentGunIndex].fill -= sanitizerInventory[currentGunIndex].cost;
         menuController.fillAmount = sanitizerInventory[currentGunIndex].fill;
+        menuController.SetGunFill(CurrentGun, sanitizerInventory[currentGunIndex].fill);
 
         _lastShoot = Time.time;
     }
@@ -87,5 +101,21 @@ public class PlayerShooter : MonoBehaviour
         screenPos.z = position.z;
         
         return (screenPos - position).normalized;
+    }
+
+    void UpdateGunIconFill()
+    {
+        for (int i = 0; i < sanitizerInventory.Length; i++)
+        {
+            menuController.SetGunFill(sanitizerInventory[i].sanitizerGun, sanitizerInventory[i].fill);
+        }
+    }
+
+    public void UpdateFill(SanitizerGun gun, float amount)
+    {
+        SanitizerInventoryEntry entry = sanitizerInventory.First(g => g.sanitizerGun == gun);
+        entry.fill = Mathf.Clamp(entry.fill + amount, 0, 1);
+        
+        UpdateGunIconFill();
     }
 }

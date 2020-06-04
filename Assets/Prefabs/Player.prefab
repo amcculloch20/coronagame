@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  inputGravity: 10
 --- !u!114 &148405698755803830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,5 +261,14 @@ MonoBehaviour:
   - sanitizerGun: {fileID: 11400000, guid: 956b87fbd78174eb9add6af25880ba3e, type: 2}
     fill: 1
     cost: 0.015
+  - sanitizerGun: {fileID: 11400000, guid: 62f9bf267837c46d6a24c6c54e8e6f5d, type: 2}
+    fill: 0.5
+    cost: 0.075
+  - sanitizerGun: {fileID: 11400000, guid: 576d9fc878883438e98efef736923a91, type: 2}
+    fill: 0.2
+    cost: 0.1
+  - sanitizerGun: {fileID: 11400000, guid: 31cffadb79fb647bb961f9b936a9fba8, type: 2}
+    fill: 0.1
+    cost: 0.025
   currentGunIndex: 0
   menuController: {fileID: 0}

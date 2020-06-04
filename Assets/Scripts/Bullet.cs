@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     
     public float speed;
     public float power;
+    public float lifetime = 10f;
 
     public ParticleSystem trailParticle;
     public ParticleSystem hitParticle;
@@ -17,13 +18,15 @@ public class Bullet : MonoBehaviour
     public delegate void OnHitDelegate(Collision2D collision);
     public OnHitDelegate onHitDelegate;
 
+    private float _spawnTime;
     private Collider2D _collider;
 
     // Start is called before the first frame update
     void Start()
     {
         _collider = GetComponent<Collider2D>();
-
+        _spawnTime = Time.time;
+        
         onHitDelegate += OnHit;
     }
 
@@ -31,6 +34,12 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(speed*Time.deltaTime*velocity);
+
+        if (Time.time - _spawnTime > lifetime)
+        {
+            DetachTrail();
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -50,11 +59,21 @@ public class Bullet : MonoBehaviour
             damageable.Damage(power);
         }
         
+        ManageParticlesOnHit();
+    }
+
+    public void DetachTrail()
+    {
         // Detach trail particle to avoid particles disappearing
         trailParticle.Stop();
         trailParticle.gameObject.transform.parent = null;
         Destroy(trailParticle.gameObject, trailParticle.main.duration);
-            
+    }
+
+    public void ManageParticlesOnHit()
+    {
+        DetachTrail();
+
         // Spawn hit particle
         GameObject p = Instantiate(hitParticle, transform.position, Quaternion.identity).gameObject;
         Destroy(p, hitParticle.main.duration);

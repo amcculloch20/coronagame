@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82a33343f242b4ae59bdb2d4e41921c7, type: 3}
-  m_Name: Aerosol
+  m_Name: Mist
   m_EditorClassIdentifier: 
-  gunName: Aerosol
+  gunName: Mist
   color: {r: 0.9, g: 0.93333334, b: 1, a: 1}
   rate: 20
-  bullet: {fileID: 0}
+  bullet: {fileID: 8540069310973332065, guid: f36062e7f775b45bbb65fd7568eb08ba, type: 3}

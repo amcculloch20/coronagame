@@ -21,20 +21,39 @@ public class SprayBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isParent && !_hasSpawnedChildren)
+        {
+            SpawnChildren();
+        }
     }
 
     void SpawnChildren()
     {
+        _hasSpawnedChildren = true;
+        
         float angleInterval = spread / count;
-        float angle = Mathf.Atan2(_bullet.velocity.y, _bullet.velocity.x);
+        float angle = Mathf.Atan2(_bullet.velocity.y, _bullet.velocity.x) * Mathf.Rad2Deg;
 
         float minAngle = angle - spread / 2;
         float maxAngle = angle + spread / 2;
 
         for (float a = minAngle; a <= maxAngle; a += angleInterval)
         {
+            // Calculate velocity
+            Vector2 velocity = new Vector2(
+                Mathf.Cos(a * Mathf.Deg2Rad),
+                Mathf.Sin(a * Mathf.Deg2Rad)
+            );
             
+            // Instantiate child
+            GameObject child = Instantiate(gameObject, transform.position, Quaternion.identity);
+            Bullet childBullet = child.GetComponent<Bullet>();
+            childBullet.velocity = velocity;
+            SprayBullet childSprayBullet = child.GetComponent<SprayBullet>();
+            childSprayBullet.isParent = false;
         }
+        
+        // Destroy self
+        Destroy(gameObject);
     }
 }

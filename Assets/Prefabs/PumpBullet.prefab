@@ -285,7 +285,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       scalar: 0.25
-      minScalar: 1
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4749,7 +4749,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: -7204647971529134275, guid: acd034b0c72cd425c84635fdcefb2534, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -4831,10 +4831,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  speed: 4
+  speed: 4.5
   power: 20
   trailParticle: {fileID: 920804644941143513}
-  hitParticle: {fileID: 5032970935396332274, guid: a2bb1f2095e4143cfb8f6f44999a3e78,
+  hitParticle: {fileID: 5032970935396332274, guid: 72153158e71194418ad8493a2f8bad55,
     type: 3}
 --- !u!1001 &2509270189466180544
 PrefabInstance:

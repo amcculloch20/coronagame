@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Spray
   m_EditorClassIdentifier: 
   gunName: Spray
-  color: {r: 0.8, g: 0.8333333, b: 1, a: 1}
+  color: {r: 0.7, g: 0.7470588, b: 1, a: 1}
   rate: 2
-  bullet: {fileID: 0}
+  bullet: {fileID: 8540069310973332065, guid: cc97244ba7b0e4ebdb170c9929ab5a26, type: 3}
